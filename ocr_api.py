@@ -21,6 +21,7 @@ async def scrape_text(youtube_url: str = Query(..., description="YouTube video U
 
     to_return = [
         {
+            "id": video_id,
             "text": transcript["text"],
             "regular_url": f"https://www.youtube.com/watch?v={video_id}",
             "url_with_timestamp": f"https://www.youtube.com/watch?v={video_id}&t={transcript['start']}s",
