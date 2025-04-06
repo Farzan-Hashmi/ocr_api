@@ -1,13 +1,19 @@
 from fastapi import FastAPI, Query
 from youtube_transcript_api import YouTubeTranscriptApi
-
+from youtube_transcript_api.proxies import WebshareProxyConfig
+import os
 
 app = FastAPI()
 
 
 @app.get("/scrape")
 async def scrape_text(youtube_url: str = Query(..., description="YouTube video URL")):
-    ytt_api = YouTubeTranscriptApi()
+    ytt_api = YouTubeTranscriptApi(
+        proxy_config=WebshareProxyConfig(
+            proxy_username=os.getenv("PROXY_USERNAME"),
+            proxy_password=os.getenv("PROXY_PASSWORD"),
+        )
+    )
     print("reached")
     video_id = youtube_url.split("v=")[-1].split("&")[0]
     print(video_id)
