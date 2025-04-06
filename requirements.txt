@@ -1,4 +1,5 @@
 fastapi
-uvicorn[standard]
-pytesseract
+uvicorn
 pillow
+pytesseract
+python-multipart
