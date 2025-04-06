@@ -18,6 +18,7 @@ async def scrape_text(youtube_url: str = Query(..., description="YouTube video U
             "text": transcript["text"],
             "regular_url": f"https://www.youtube.com/watch?v={video_id}",
             "url_with_timestamp": f"https://www.youtube.com/watch?v={video_id}&t={transcript['start']}s",
+            "thumbnail_url": f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg",
         }
         for transcript in transcript_dicts
     ]
