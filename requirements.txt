@@ -1,5 +1,3 @@
 fastapi
-uvicorn
-pillow
-pytesseract
-python-multipart
+uvicorn[standard]
+youtube-transcript-api
