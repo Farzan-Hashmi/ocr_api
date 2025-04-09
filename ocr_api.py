@@ -32,7 +32,7 @@ async def scrape_text(youtube_url: str = Query(..., description="YouTube video U
         regular_url = f"https://www.youtube.com/watch?v={video_id}"
         url_with_timestamp = f"https://www.youtube.com/watch?v={video_id}&t={transcript_dicts[i]['start']}s"
         thumbnail_url = f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg"
-        for j in range(i, min(i + 20, len(transcript_dicts))):
+        for j in range(i, min(i + 2, len(transcript_dicts))):
             combined_text += transcript_dicts[j]["text"] + " "
 
         to_return.append(
